@@ -13,7 +13,7 @@ def get_mask_card_number(card_number: str) -> str:
 
     mask_card = "".join(mask)
 
-    return " ".join(mask_card[i: i + 4] for i in range(0, len(mask_card), 4))
+    return " ".join(mask_card[i : i + 4] for i in range(0, len(mask_card), 4))
 
 
 get_mask_card_number(input())
