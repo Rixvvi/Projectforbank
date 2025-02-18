@@ -22,8 +22,8 @@ def get_date(date: str) -> str:
     day = ""
     our_date = date.split("-")
 
-    for litera in our_date[2]:
-        day += litera
+    for alphabet in our_date[2]:
+        day += alphabet
         counter += 1
         if counter == 2:
             break
