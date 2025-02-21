@@ -2,9 +2,9 @@ def filter_by_state(list_trans: list[dict], state: str = "EXECUTED") -> list[dic
     """Функция принимает список словарей и значение state, после чего возвращает новый список словарей,
     содержащий только те словари, у которых ключ совпадает с введенным значением state"""
     new_list: list[dict] = []
-    for trans in list_trans:
-        if trans.get("state") == state:
-            new_list.append(trans)
+    for transaction in list_trans:
+        if transaction.get("state") == state:
+            new_list.append(transaction)
     return new_list
 
 
