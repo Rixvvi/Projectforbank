@@ -2,7 +2,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(account_card: str) -> str:
-    """функция, которая умеет обрабатывать информацию как о картах, так и о счетах"""
+    """Функция обрабатывает информацию как о картах, так и о счетах"""
     name_card = account_card.split(" ")
     if name_card[0] == "Счет":
         result = get_mask_account(name_card[-1])
@@ -16,7 +16,7 @@ mask_account_card(input())
 
 
 def get_date(date: str) -> str:
-    """принимает на вход строку с датой и возвращает её в другом формате"""
+    """Функция принимает на вход строку с датой и возвращает её в другом формате"""
     user_date = list()
     counter = 0
     day = ""
