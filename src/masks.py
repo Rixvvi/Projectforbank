@@ -1,5 +1,5 @@
 def get_mask_card_number(card_number: str) -> str:
-    """принимает на вход номер карты и возвращает её маску"""
+    """Функция принимает на вход номер карты и возвращает её маску"""
     mask = list()
 
     for num in card_number[:6]:
@@ -20,7 +20,7 @@ get_mask_card_number(input())
 
 
 def get_mask_account(account: str) -> str:
-    """принимает на вход номер счета и возвращает его маску"""
+    """Функция принимает на вход номер счета и возвращает его маску"""
     mask_account = list()
 
     mask_account.append("**")
