@@ -29,9 +29,19 @@ def get_mask_account(account: str) -> str:
     """Функция принимает на вход номер счета и возвращает его маску"""
     mask_account = list()
 
-    mask_account.append("**")
+    if account.isdigit():
 
-    for number in account[-4:]:
-        mask_account.append(str(number))
+        if len(account) == 20:
 
-    return "".join(mask_account)
+            mask_account.append("**")
+
+            for number in account[-4:]:
+                mask_account.append(str(number))
+
+            return "".join(mask_account)
+
+        else:
+            return "Введите 20-ти значный номер счета"
+
+    else:
+        return "Введите номер счета"
