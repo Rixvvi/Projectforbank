@@ -20,24 +20,24 @@ def test_filter_by_state_nothing(transaction_requests_canceled_nothing: list[dic
 
 
 def test_sort_by_date_true(function_1: list[dict]) -> None:
-    for fan in function_1:
-        one, two = fan
-        assert sort_by_date(one) == two
+    for func1_1 in function_1:
+        f1_1, f_1 = func1_1
+        assert sort_by_date(f1_1) == f_1
 
 
 def test_sort_by_date_similar(function_2: list[dict]) -> None:
-    for naf in function_2:
-        eno, owt = naf
-        assert sort_by_date(eno) == owt
+    for func2_2 in function_2:
+        f2_2, f_2 = func2_2
+        assert sort_by_date(f2_2) == f_2
 
 
 def test_sort_by_date_non_standard(function_3: list[dict]) -> None:
-    for pin in function_3:
-        avna, owna = pin
-        assert sort_by_date(avna) == owna
+    for func3_3 in function_3:
+        f3_3, f_3 = func3_3
+        assert sort_by_date(f3_3) == f_3
 
 
 def test_sort_by_date_false(function_4: list[dict]) -> None:
-    for pictur in function_4:
-        aghj, pokg, trew = pictur
-        assert sort_by_date(aghj, pokg) == trew
+    for func4_4 in function_4:
+        f4_4, arg_for_func, f_4 = func4_4
+        assert sort_by_date(f4_4, arg_for_func) == f_4
