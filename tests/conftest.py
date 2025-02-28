@@ -2,7 +2,7 @@ import pytest
 
 
 @pytest.fixture()
-def transaction_requests_executed():
+def transaction_requests_executed() -> list[tuple]:
     filter_answers = [
         (
             [
@@ -22,7 +22,7 @@ def transaction_requests_executed():
 
 
 @pytest.fixture()
-def transaction_requests_canceled():
+def transaction_requests_canceled() -> list[tuple]:
     answer_filter = [
         (
             [
@@ -42,7 +42,7 @@ def transaction_requests_canceled():
 
 
 @pytest.fixture()
-def transaction_requests_canceled_nothing():
+def transaction_requests_canceled_nothing() -> list[tuple]:
     filter_func = [
         (
             [
@@ -61,7 +61,7 @@ def transaction_requests_canceled_nothing():
 
 
 @pytest.fixture()
-def function_1():
+def function_1() -> list[tuple]:
     func_1 = [
         (
             [
@@ -82,7 +82,7 @@ def function_1():
 
 
 @pytest.fixture()
-def function_2():
+def function_2() -> list[tuple]:
     func_2 = [
         (
             [
@@ -103,7 +103,7 @@ def function_2():
 
 
 @pytest.fixture()
-def function_3():
+def function_3() -> list[tuple]:
     func_3 = [
         (
             [
@@ -124,7 +124,7 @@ def function_3():
 
 
 @pytest.fixture()
-def function_4():
+def function_4() -> list[tuple]:
     func_4 = [
         (
             [

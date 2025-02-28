@@ -7,12 +7,12 @@ from src.widget import mask_account_card, get_date
     ('Maestro 1596837868705199', 'Maestro 1596 83** **** 5199'),
     ('Счет 35383033474447895560', 'Счет **5560')
 ])
-
-def test_get_mask_card_number(first, second):
+def test_get_mask_card_number(first: str, second: str) -> None:
     assert mask_account_card(first) == second
 
-def test_mask_card_number_with_not_str():
-    with pytest.raises(AttributeError) as exc_info:
+
+def test_mask_card_number_with_not_str() -> None:
+    with pytest.raises(AttributeError):
         mask_account_card(5)
 
 
@@ -21,7 +21,5 @@ def test_mask_card_number_with_not_str():
     ('2025-02-28', '28.02.2025'),
     ('', 'Введена пустая строка')
 ])
-
-
-def test_get_date(frst, scnd):
+def test_get_date(frst: str, scnd: str) -> None:
     assert get_date(frst) == scnd

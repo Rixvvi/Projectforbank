@@ -8,10 +8,9 @@ from src.masks import get_mask_card_number, get_mask_account
     ('5епроа', 'Введите номер карты'),
     ('10328476', 'Введите 16-ти значный номер карты'),
     ('', 'Введите номер карты'),
-    ('1537289054628190453627' , 'Введите 16-ти значный номер карты')
+    ('1537289054628190453627', 'Введите 16-ти значный номер карты')
 ])
-
-def test_get_mask_card_number(value, expected):
+def test_get_mask_card_number(value: str, expected: str) -> None:
     assert get_mask_card_number(value) == expected
 
 
@@ -23,6 +22,5 @@ def test_get_mask_card_number(value, expected):
     ('', 'Введите номер счета'),
     ('36518791070182567081610737543621', 'Введите 20-ти значный номер счета')
 ])
-
-def test_get_mask_account(val, exp):
+def test_get_mask_account(val: str, exp: str) -> None:
     assert get_mask_account(val) == exp
