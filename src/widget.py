@@ -12,27 +12,20 @@ def mask_account_card(account_card: str) -> str:
     return " ".join(name_card) + " " + result
 
 
-mask_account_card(input())
-
-
 def get_date(date: str) -> str:
     """Функция принимает на вход строку с датой и возвращает её в другом формате"""
+    if date == '':
+        return 'Введена пустая строка'
     user_date = list()
     counter = 0
     day = ""
     our_date = date.split("-")
-
     for alphabet in our_date[2]:
         day += alphabet
         counter += 1
         if counter == 2:
             break
-
     user_date.append(day)
     user_date.append(our_date[1])
     user_date.append(our_date[0])
-
     return ".".join(user_date)
-
-
-get_date(input())
