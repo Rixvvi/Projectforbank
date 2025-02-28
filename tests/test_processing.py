@@ -35,3 +35,9 @@ def test_sort_by_date_non_standard(function_3):
   for pin in function_3:
     avna, owna = pin
     assert sort_by_date(avna) == owna
+
+
+def test_sort_by_date_false(function_4):
+  for pictur in function_4:
+    aghj, pokg, trew = pictur
+    assert sort_by_date(aghj, pokg) == trew
