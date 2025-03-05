@@ -17,7 +17,7 @@ def filter_by_currency(transactions: list[dict], currency_code: str) -> Generato
             yield transaction
 
 
-def transaction_descriptions(transactions: list[dict]) -> Generator[dict, None, None]:
+def transaction_descriptions(transactions: list[dict]) -> Generator[str, None, None]:
     """Генератор принимает список словарей с транзакциями и возвращает описание каждой операции по очереди."""
     for trans in transactions:
         if 'description' not in trans:
@@ -25,7 +25,7 @@ def transaction_descriptions(transactions: list[dict]) -> Generator[dict, None, 
         yield trans['description']
 
 
-def card_number_generator(start: int, end: int) -> Generator[dict, None, None]:
+def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
     """Генератор выдает номера банковских карт в формате XXXX XXXX XXXX XXXX, где X — цифра номера карты."""
     for i in range(start, end + 1):
         result = str(i).rjust(16, '0')

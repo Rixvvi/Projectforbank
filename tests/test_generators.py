@@ -1,7 +1,7 @@
 from generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
-def test_filter_by_currency_usd(transactions):
+def test_filter_by_currency_usd(transactions: list[dict]) -> None:
     usd_transactions = filter_by_currency(transactions, "USD")
     assert next(usd_transactions) == {
             "id": 939719570,
@@ -20,7 +20,7 @@ def test_filter_by_currency_usd(transactions):
         }
 
 
-def test_filter_by_currency_rub(transactions):
+def test_filter_by_currency_rub(transactions: list[dict]) -> None:
     usd_transactions = filter_by_currency(transactions, "RUB")
     assert next(usd_transactions) == {
             "id": 873106923,
@@ -39,7 +39,7 @@ def test_filter_by_currency_rub(transactions):
         }
 
 
-def test_transaction_descriptions(transactions):
+def test_transaction_descriptions(transactions: list[dict]) -> None:
     descriptions = transaction_descriptions(transactions)
     assert next(descriptions) == 'Перевод организации'
     assert next(descriptions) == 'Перевод со счета на счет'
@@ -47,7 +47,7 @@ def test_transaction_descriptions(transactions):
     assert next(descriptions) == 'Перевод с карты на карту'
 
 
-def test_card_number_generator():
+def test_card_number_generator() -> None:
     generator = card_number_generator(1, 5)
     assert next(generator) == '0000 0000 0000 0001'
     assert next(generator) == '0000 0000 0000 0002'
