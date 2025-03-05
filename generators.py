@@ -2,7 +2,7 @@ from typing import Generator
 
 
 def filter_by_currency(transactions: list[dict], currency_code: str) -> Generator[dict, None, None]:
-    """Функция принимает на вход список словарей, представляющих транзакции, а затем возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной"""
+    """Функция возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной"""
     for transaction in transactions:
         if 'operationAmount' not in transaction:
             continue
