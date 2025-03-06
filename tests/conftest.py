@@ -146,7 +146,7 @@ def function_4() -> list[tuple]:
 
 
 @pytest.fixture()
-def transactions() -> list[tuple]:
+def transactions() -> list[dict]:
     transactions = (
         [
             {
