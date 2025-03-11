@@ -1,11 +1,15 @@
 from functools import wraps
+from typing import Any, Callable
 
 
-def log(filename=None):
-    def decorator(func):
+def log(filename: Any = None) -> Any:
+    """Декоратор, который логирует начало, конец, результат и ошибки"""
+    def decorator(func: Callable[..., Any]) -> Any:
+        """Декоратор логирования начала, конца, результата и ошибок функции"""
         @wraps(func)
-        def wrapper(*args, **kwargs):
-            start_message = f'Функция {func.__name__} началась с аргументами: {args} и {kwargs}'
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            """Функция обертка"""
+            start_message = f'{func.__name__} start'
             if filename:
                 with open(filename, 'a') as file:
                     file.write(start_message + '\n')
@@ -13,7 +17,7 @@ def log(filename=None):
                 print(start_message)
             try:
                 result = func(*args, **kwargs)
-                end_message = f'Функция {func.__name__} завершилась с результатом: {result}'
+                end_message = f'{func.__name__} ok'
                 if filename:
                     with open(filename, 'a') as file:
                         file.write(end_message + '\n')
@@ -21,7 +25,7 @@ def log(filename=None):
                     print(end_message)
                 return result
             except Exception as e:
-                error_message = f'Ошибка в функции {func.__name__}, тип ошибки: {type(e).__name__} с аргументами {args} и {kwargs}'
+                error_message = f'{func.__name__} error: {type(e).__name__}. Inputs: {args}, {kwargs}'
                 if filename:
                     with open(filename, 'a') as file:
                         file.write(error_message + '\n')
