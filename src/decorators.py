@@ -1,8 +1,8 @@
 from functools import wraps
-from typing import Any, Callable
+from typing import Any, Callable, Optional
 
 
-def log(filename: str = None) -> Any:
+def log(filename: Optional[str] = None) -> Any:
     """Декоратор, который логирует начало, конец, результат и ошибки"""
 
     def decorator(func: Callable[..., Any]) -> Any:
@@ -46,7 +46,34 @@ def log(filename: str = None) -> Any:
 
 
 @log(filename="mylog.txt")
-def addiction(x, y):
+def addiction(x: int, y: int) -> int:
     return x + y
 
+
 addiction(1, 2)
+
+
+@log()
+def subtraction(a: int, b: int) -> int:
+    return a - b
+
+
+subtraction(10, 4)
+
+
+@log(filename="errors.txt")
+def exception(c: Any, d: Any) -> None:
+    result = c / d
+    raise ZeroDivisionError
+
+
+exception(5, 0)
+
+
+@log()
+def exception_interpreter(m: Any, n: Any) -> None:
+    outcome = m * n
+    raise ValueError
+
+
+exception_interpreter(6, "Котик")

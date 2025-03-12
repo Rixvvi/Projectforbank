@@ -1,2 +1,0 @@
-my_function start
-my_function ok
