@@ -1,5 +1,7 @@
-from unittest.mock import patch, mock_open
+from unittest.mock import mock_open, patch
+
 from src.utils import read_json
+
 
 @patch('builtins.open', new_callable=mock_open, read_data='[]')
 @patch('json.load')

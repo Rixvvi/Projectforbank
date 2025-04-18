@@ -63,7 +63,6 @@ subtraction(10, 4)
 
 @log(filename="errors.txt")
 def exception(c: Any, d: Any) -> None:
-    result = c / d
     raise ZeroDivisionError
 
 
@@ -72,7 +71,6 @@ exception(5, 0)
 
 @log()
 def exception_interpreter(m: Any, n: Any) -> None:
-    outcome = m * n
     raise ValueError
 
 
