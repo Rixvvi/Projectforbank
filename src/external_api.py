@@ -1,8 +1,11 @@
+import os
+from dotenv import load_dotenv
 import requests
 from src.utils import read_json
 
+load_dotenv()
 
-def external_api():
+def get_external_api() -> float:
     """Функция, которая принимает на вход транзакцию и возвращает сумму транзакции в рублях"""
     trans_file = read_json("../data/operations.json")
     counter = 0
@@ -29,7 +32,7 @@ def external_api():
                 url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={code}&amount={amount}"
 
                 headers = {
-                    "apikey": "arDZDYKt8dk1NxTnDcED60BCbExuAyeo"
+                    "apikey": os.getenv('API_KEY')
                 }
 
                 response = requests.get(url, headers=headers, data={})
@@ -46,6 +49,3 @@ def external_api():
                 print(e.__class__.__name__)
 
     return counter
-
-
-print(external_api())

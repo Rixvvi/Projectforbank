@@ -1,7 +1,6 @@
 import json
 from json import JSONDecodeError
 
-
 def read_json(path: str) -> list[dict]:
     """Функция, которая принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях"""
     try:
@@ -11,6 +10,7 @@ def read_json(path: str) -> list[dict]:
                 return []
         return data
     except FileNotFoundError:
+
         return []
     except JSONDecodeError:
         return []
