@@ -1,7 +1,7 @@
 import json
+import logging
 from json import JSONDecodeError
 from typing import Any
-import logging
 
 my_logger = logging.getLogger(__name__)
 file_handler = logging.FileHandler('../logs/log_utils.log', 'w')

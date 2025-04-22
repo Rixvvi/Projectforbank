@@ -21,7 +21,7 @@ def get_mask_card_number(card_number: str) -> str:
             for number in card_number[-4:]:
                 masked_card.append(str(number))
             mask_card = "".join(masked_card)
-            return " ".join(mask_card[i : i + 4] for i in range(0, len(mask_card), 4))
+            return " ".join(mask_card[i:i + 4] for i in range(0, len(mask_card), 4))
         else:
             my_logger.debug('Введен не 16-ти значный номер карты')
             return "Введите 16-ти значный номер карты"
