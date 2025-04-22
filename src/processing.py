@@ -1,4 +1,4 @@
-def filter_by_state(list_trans: list[dict], state: str = 'EXECUTED') -> list[dict]:
+def filter_by_state(list_trans: list[dict], state: str = "EXECUTED") -> list[dict]:
     """Функция принимает список словарей и значение state, после чего возвращает новый список словарей,
     содержащий только те словари, у которых ключ совпадает с введенным значением state"""
     new_list: list[dict] = []

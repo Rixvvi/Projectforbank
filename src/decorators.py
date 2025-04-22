@@ -12,31 +12,31 @@ def log(filename: Optional[str] = None) -> Any:
         def wrapper(*args: tuple, **kwargs: dict) -> Any:
             """Функция обертка"""
 
-            start_message = f'{func.__name__} start'
+            start_message = f"{func.__name__} start"
 
             if filename:
-                with open(filename, 'a', encoding="UTF-8") as file:
-                    file.write(start_message + '\n')
+                with open(filename, "a", encoding="UTF-8") as file:
+                    file.write(start_message + "\n")
             else:
                 print(start_message)
 
             try:
                 result = func(*args, **kwargs)
-                end_message = f'{func.__name__} ok'
+                end_message = f"{func.__name__} ok"
 
                 if filename:
-                    with open(filename, 'a', encoding="UTF-8") as file:
-                        file.write(end_message + '\n')
+                    with open(filename, "a", encoding="UTF-8") as file:
+                        file.write(end_message + "\n")
                 else:
                     print(end_message)
 
                 return result
             except Exception as e:
-                error_message = f'{func.__name__} error: {type(e).__name__}. Inputs: {args}, {kwargs}'
+                error_message = f"{func.__name__} error: {type(e).__name__}. Inputs: {args}, {kwargs}"
 
                 if filename:
-                    with open(filename, 'a', encoding="UTF-8") as file:
-                        file.write(error_message + '\n')
+                    with open(filename, "a", encoding="UTF-8") as file:
+                        file.write(error_message + "\n")
                 else:
                     print(error_message)
 
@@ -63,7 +63,6 @@ subtraction(10, 4)
 
 @log(filename="errors.txt")
 def exception(c: Any, d: Any) -> None:
-    result = c / d
     raise ZeroDivisionError
 
 
@@ -72,7 +71,6 @@ exception(5, 0)
 
 @log()
 def exception_interpreter(m: Any, n: Any) -> None:
-    outcome = m * n
     raise ValueError
 
 

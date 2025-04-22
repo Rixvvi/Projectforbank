@@ -14,8 +14,8 @@ def mask_account_card(account_card: str) -> str:
 
 def get_date(date: str) -> str:
     """Функция принимает на вход строку с датой и возвращает её в другом формате"""
-    if date == '':
-        return 'Введена пустая строка'
+    if date == "":
+        return "Введена пустая строка"
     user_date = list()
     counter = 0
     day = ""
