@@ -16,9 +16,6 @@ def read_csv(file_path: str) -> list[dict]:
     return []
 
 
-print(read_csv('../data/transactions.csv'))
-
-
 def read_from_excel(path: str) -> list[dict]:
     """Функция, которая считывает финансовые операции из XLSX выдает список словарей с транзакциями"""
 
@@ -30,6 +27,3 @@ def read_from_excel(path: str) -> list[dict]:
         print(e.__class__.__name__)
 
     return []
-
-
-print(read_from_excel('../data/transactions_excel.xlsx'))
