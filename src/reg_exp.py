@@ -20,8 +20,6 @@ operation = [
     {'id': 5380041, 'state': 'CANCELED', 'description': 'Открытие вклада'}
 ]
 
-print(get_search_str(operation, 'Открытие'))
-
 
 def get_categories(operation: list[dict], categories: list) -> dict:
     """Функция принимает список словарей с данными о банковских операциях и список категорий операций,
@@ -36,5 +34,3 @@ def get_categories(operation: list[dict], categories: list) -> dict:
 
 
 categories = ['Открытие счета', 'Открытие вклада']
-
-print(get_categories(operation, categories))
