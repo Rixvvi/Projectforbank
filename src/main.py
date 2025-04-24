@@ -1,14 +1,12 @@
-from src.data_reading import read_from_excel, read_csv
-from src.utils import read_json
+from src.data_reading import read_csv, read_from_excel
+from src.generators import filter_by_currency
 from src.processing import filter_by_state, sort_by_date
 from src.reg_exp import get_search_str
-from src.generators import filter_by_currency
-from src.widget import get_date
-from src.widget import mask_account_card
+from src.utils import read_json
+from src.widget import get_date, mask_account_card
 
 
-def main():
-
+def main() -> None:
     print('''Привет! Добро пожаловать в программу работы с банковскими транзакциями.
 Выберите необходимый пункт меню:
 1. Получить информацию о транзакциях из JSON-файла
@@ -37,20 +35,20 @@ def main():
 
     while True:
         possible = ['EXECUTED', 'CANCELED', 'PENDING']
-        user_input = input().strip()
-        if user_input.upper() in possible:
-            transac = filter_by_state(transactions, user_input.upper())
-            print(f'Операции отфильтрованы по статусу "{user_input.upper()}"')
+        choice = input().strip()
+        if choice.upper() in possible:
+            transac = filter_by_state(transactions, choice.upper())
+            print(f'Операции отфильтрованы по статусу "{choice.upper()}"')
             break
         else:
-            print(f'Статус операции "{user_input}" недоступен.')
+            print(f'Статус операции "{choice}" недоступен.')
 
     while True:
-        user_input = input('Отсортировать операции по дате? Да/Нет: ').lower().strip()
-        if user_input == 'нет':
+        choice = input('Отсортировать операции по дате? Да/Нет: ').lower().strip()
+        if choice == 'нет':
             tran = transac
             break
-        elif user_input == 'да':
+        elif choice == 'да':
             while True:
                 us_input = input('Отсортировать по возрастанию или по убыванию? ').lower().strip()
                 if us_input == 'по возрастанию':
@@ -66,23 +64,23 @@ def main():
             print('Некорректный ввод.')
 
     while True:
-        user_input = input('Выводить только рублевые транзакции? Да/Нет: ').lower().strip()
-        if user_input in ("да", "нет"):
-            if user_input == "да" and type_file == "1":
+        choice = input('Выводить только рублевые транзакции? Да/Нет: ').lower().strip()
+        if choice in ("да", "нет"):
+            if choice == "да" and type_file == "1":
                 tran = [transaction for transaction in filter_by_currency(tran, 'RUB')]
-            elif user_input == "да":
+            elif choice == "да":
                 tran = list(filter(lambda x: x["currency_code"] == "RUB", tran))
             break
         else:
             print('Некорректный ввод.')
 
     while True:
-        user_input = input('Отфильтровать список транзакций по определенному слову в описании? Да/Нет: ').lower().strip()
-        if user_input == 'да':
+        choice = input('Отфильтровать список транзакций по определенному слову в описании? Да/Нет: ').lower().strip()
+        if choice == 'да':
             us_input = input('Введите слово, по которому вы бы хотели отфильтровать список транзакций: ')
             operat = get_search_str(tran, us_input)
             break
-        elif user_input == 'нет':
+        elif choice == 'нет':
             operat = tran
             break
         else:
@@ -122,6 +120,7 @@ def main():
             print()
     else:
         print('Не найдено ни одной транзакции, подходящей под ваши условия фильтрации')
+
 
 if __name__ == "__main__":
     main()
