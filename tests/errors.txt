@@ -1,4 +1,0 @@
-exception start
-exception error: ZeroDivisionError. Inputs: (5, 0), {}
-exception start
-exception error: ZeroDivisionError. Inputs: (5, 0), {}
