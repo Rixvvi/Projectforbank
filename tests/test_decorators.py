@@ -5,7 +5,7 @@ from src.decorators import addiction, exception_interpreter, subtraction
 
 def test_addiction_with_params() -> None:
     addiction(6, 7)
-    with open("../mylog.txt", "r", encoding="UTF-8") as file:
+    with open("./mylog.txt", "w", encoding="UTF-8") as file:
         file.readlines()
         assert "addiction start"
         assert "addiction ok"
@@ -19,7 +19,8 @@ def test_subtraction(capsys: CaptureFixture[str]) -> None:
 
 
 def test_exception() -> None:
-    with open("../errors.txt", "r", encoding="UTF-8") as file:
+    addiction(6, 7)
+    with open("./errors.txt", "w", encoding="UTF-8") as file:
         file.readlines()
         assert "exception start"
         assert "exception error: ZeroDivisionError. Inputs: 5 0"
